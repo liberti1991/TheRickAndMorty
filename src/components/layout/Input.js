@@ -12,8 +12,7 @@ export const Input = ({ placeholder, onChange, value }) => {
 };
 
 const ContaineirInput = styled.div`
-  padding: 10px;
-  text-align: start;
+  text-align: center;
   transition: all .5s;
 
   :hover{

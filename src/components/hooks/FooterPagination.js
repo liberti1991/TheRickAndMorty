@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 
-export const FooterPagination = ({pageCount, changePage}) => {
+export const FooterPagination = ({ pageCount, changePage }) => {
   return (
     <Footer>
       <ReactPaginate
@@ -32,11 +32,12 @@ const Footer = styled.footer`
     display: flex;
     align-items: center;
     font-size: 18px;
+    cursor: pointer;
     font-weight: 600;
     gap: 20px;
     list-style-type: none;
   }
-  
+
   .previousLinkClassName,
   .nextLinkClassName {
     display: flex;
@@ -49,13 +50,19 @@ const Footer = styled.footer`
       height: 25px;
     }
   }
+
   .disabledClassName {
     display: none;
   }
+
   .activeClassName {
     padding: 5px 10px;
     background-color: orange;
     border-radius: 5px;
-    color: #fff;
+    color: black;
+
+    :hover {
+      transform: scale(1.05);
+    }
   }
 `;

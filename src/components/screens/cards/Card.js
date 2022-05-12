@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import styled from "styled-components";
+
 import { FooterPagination } from "../../hooks/FooterPagination";
 import { usePagination } from "../../hooks/usePagination";
 
@@ -8,22 +10,25 @@ export const Card = ({ filteredCharacters }) => {
 
   return (
     <>
-      {filteredCharacters.slice(pagesVisited, pagesVisited + itemsPerPage).map((character) => {
-        return (
-          <ConteinerCard key={character.id}>
-            <img src={character.image} alt={character.name} />
-            <h1>{character.name}</h1>
-            <Description>
-              <Dot color={character.status === "Alive" ? "green" : character.status === "Dead" ? "red" : "grey"}></Dot>
-              <p>{character.status} - {character.species}</p>
-            </Description>
-            <p>Gender: <span>{character.gender}</span></p>
-            {character.type.length > 0 ? <p>Type: <span>{character.type}</span></p> : null}
-            <p>Origin: <span>{character.origin.name}</span></p>
-            <p>Location: <span>{character.location.name}aham</span></p>
-          </ConteinerCard>
-        );
-      })}
+      {useMemo(() => {
+        return filteredCharacters.slice(pagesVisited, pagesVisited + itemsPerPage).map((character) => {
+          return (
+            <ConteinerCard key={character.id}>
+              <img src={character.image} alt={character.name} />
+              <h1>{character.name}</h1>
+              <Description>
+                <Dot color={character.status === "Alive" ? "green" : character.status === "Dead" ? "red" : "grey"}></Dot>
+                <p>{character.status} - {character.species}</p>
+              </Description>
+              <p>Gender: <span>{character.gender}</span></p>
+              {character.type.length > 0 ? <p>Type: <span>{character.type}</span></p> : null}
+              <p>Origin: <span>{character.origin.name}</span></p>
+              <p>Location: <span>{character.location.name}aham</span></p>
+            </ConteinerCard>
+          );
+        });
+      }, [filteredCharacters, itemsPerPage, pagesVisited])}
+
       <section>
         <FooterPagination changePage={changePage} pageCount={pageCount} />
       </section>

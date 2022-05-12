@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import styled from "styled-components";
 
 import { Input } from "../layout/Input";
+import { Logo } from "../layout/Logo";
 import { Card } from "./cards/Card";
+import { LivingCharacters } from "../layout/LivingCharacters";
 
 export const HomePage = ({ characters }) => {
-  const handleSearch = (e) => setSearch(e.target.value);
+  // const [resetPag, setResetPag] = useState(-1);
+  const handleSearch = useCallback((e) => {
+    setSearch(e.target.value);
+    // {e.target.value.length > 0 ? setResetPag(0) : setResetPag(0)  }
+    // console.log(resetPag)
+  }, []);
 
   //filter
   const [search, setSearch] = useState("");
@@ -14,7 +21,11 @@ export const HomePage = ({ characters }) => {
 
   return (
     <>
-      <Input placeholder={"Search..."} value={search} onChange={handleSearch} />
+      <Logo />
+      <Header>
+        <Input placeholder={"Search..."} value={search} onChange={handleSearch} />
+        <LivingCharacters filteredCharacters={filteredCharacters} />
+      </Header>
       <Container>
         <Card filteredCharacters={filteredCharacters} />
       </Container>
@@ -32,5 +43,19 @@ const Container = styled.section`
     section {
       grid-column: 1 / span 4;
     }
-  } 
+  }
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  flex-direction: column;
+  
+  @media screen and (min-width: 648px) {
+    flex-direction: row;
+    padding: 10px 30px;
+  }
+
 `;

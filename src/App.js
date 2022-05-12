@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
+
+import { HomePage } from "./components/screens/HomePage";
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://rickandmortyapi.com/api/character")
+      .then((data) => setCharacters(data.data.results))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <HomePage characters={characters} />
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  @media screen and (min-width: 648px) {
+    width: 1200px;
+  }
+`;

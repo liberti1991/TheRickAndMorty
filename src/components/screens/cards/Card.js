@@ -10,6 +10,16 @@ export const Card = ({ filteredCharacters }) => {
 
   return (
     <>
+      {filteredCharacters.length === 0 && (
+        <ContainerLoading>
+          <Loading>
+            <div></div>
+            <div></div>
+            <div></div>
+            <span>Loading...</span>
+          </Loading>
+        </ContainerLoading>
+      )}
       {useMemo(() => {
         return filteredCharacters.slice(pagesVisited, pagesVisited + itemsPerPage).map((character) => {
           return (
@@ -21,20 +31,66 @@ export const Card = ({ filteredCharacters }) => {
                 <p>{character.status} - {character.species}</p>
               </Description>
               <p>Gender: <span>{character.gender}</span></p>
-              {character.type.length > 0 ? <p>Type: <span>{character.type}</span></p> : null}
+              {character.type.length > 0 ?  <p>Type: <span>{character.type}</span></p> : null}
               <p>Origin: <span>{character.origin.name}</span></p>
-              <p>Location: <span>{character.location.name}aham</span></p>
+              <p>ocation: <span>{character.location.name}aham</span></p>
             </ConteinerCard>
           );
         });
       }, [filteredCharacters, itemsPerPage, pagesVisited])}
-
       <section>
         <FooterPagination changePage={changePage} pageCount={pageCount} />
       </section>
     </>
   );
 };
+
+const ContainerLoading = styled.div`
+  margin: 120px auto 300px;
+  @media screen and (min-width: 648px) {
+    grid-column: 1 / span 4;
+  }
+`;
+
+const Loading = styled.div`
+  width: 120px;
+  height: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  span {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin: auto;
+  }
+
+  div {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: orange;
+    animation: bounce 0.5s alternate infinite;
+
+    :nth-child(2) {
+      animation-delay: 0.16s;
+    }
+
+    :nth-child(3) {
+      animation-delay: 0.32s;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: scaleX(1.25);
+      }
+      to {
+        transform: translateY(-50px) scaleX(1);
+      }
+    }
+  }
+`;
 
 const ConteinerCard = styled.div`
   background-color: black;

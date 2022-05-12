@@ -7,10 +7,12 @@ import { HomePage } from "./components/screens/HomePage";
 function App() {
   const [characters, setCharacters] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/character")
-      .then((data) => setCharacters(data.data.results))
-      .catch((err) => console.log(err));
+    setTimeout(() => {
+      axios
+        .get("https://rickandmortyapi.com/api/character")
+        .then((data) => setCharacters(data.data.results))
+        .catch((err) => console.log(err));
+    },5000);
   }, []);
 
   return (

@@ -27,7 +27,6 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   padding: 10px 0 30px;
-
   .containerClassName {
     display: flex;
     align-items: center;
@@ -37,7 +36,7 @@ const Footer = styled.footer`
     gap: 20px;
     list-style-type: none;
   }
-
+  
   .previousLinkClassName,
   .nextLinkClassName {
     display: flex;
@@ -45,7 +44,6 @@ const Footer = styled.footer`
     text-decoration: none;
     color: grey;
     cursor: pointer;
-    
     svg {
       width: 25px;
       height: 25px;
@@ -61,7 +59,6 @@ const Footer = styled.footer`
     background-color: orange;
     border-radius: 5px;
     color: black;
-
     :hover {
       transform: scale(1.05);
     }

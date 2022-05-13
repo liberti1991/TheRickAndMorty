@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export const usePagination = (filteredCharacters, amountOfItemsPerPage) => {
+export const usePagination = (filteredCharacters) => {
   const [pageNumber, setPageNumber] = useState(0);
 
-  const itemsPerPage = amountOfItemsPerPage;
+  let itemsPerPage = 8;
 
   const pagesVisited = pageNumber * itemsPerPage;
 

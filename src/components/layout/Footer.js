@@ -15,7 +15,6 @@ export const Footer = () => {
 const Copyright = styled.div`
   border-top: 1px solid gray;
   padding: 30px 0;
-  
   a {
     color: gray;
     text-decoration: none;

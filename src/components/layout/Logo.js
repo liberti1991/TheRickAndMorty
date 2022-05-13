@@ -1,10 +1,10 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-import logo from "../img/logo.png"
+import img from "../../img/logo.png";
 
-export const Logo =() => {
-  return <Img src={logo} alt="Logo The Rick and Morty" />
-}
+export const Logo = () => {
+  return <Img src={img} alt="Logo The Rick and Morty" />;
+};
 
 const Img = styled.img`
   width: 280px;

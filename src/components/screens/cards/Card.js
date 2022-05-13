@@ -6,7 +6,7 @@ import { usePagination } from "../../hooks/usePagination";
 
 export const Card = ({ filteredCharacters }) => {
   // Pagination
-  const { pagesVisited, pageCount, itemsPerPage, changePage } = usePagination(filteredCharacters, 8);
+  const { pagesVisited, pageCount, itemsPerPage, changePage } = usePagination(filteredCharacters);
 
   return (
     <>
@@ -28,12 +28,10 @@ export const Card = ({ filteredCharacters }) => {
               <h1>{character.name}</h1>
               <Description>
                 <Dot color={character.status === "Alive" ? "green" : character.status === "Dead" ? "red" : "grey"}></Dot>
-                <p>
-                  {character.status} - {character.species}
-                </p>
+                <p>{character.status} - {character.species}</p>
               </Description>
               <p>Gender: <span>{character.gender}</span></p>
-              {character.type.length > 0 ? <p>Type: <span>{character.type}</span></p>: null}
+              {character.type.length > 0 ? <p>Type: <span>{character.type}</span></p> : null}
               <p>Origin: <span>{character.origin.name}</span></p>
               <p>Location: <span>{character.location.name}aham</span></p>
             </ConteinerCard>
@@ -49,6 +47,7 @@ export const Card = ({ filteredCharacters }) => {
 
 const ContainerLoading = styled.div`
   margin: 120px auto 300px;
+  
   @media screen and (min-width: 648px) {
     grid-column: 1 / span 4;
   }

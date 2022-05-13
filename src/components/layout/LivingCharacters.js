@@ -21,7 +21,7 @@ const List = styled.ul`
     align-items: center;
     gap:5px;
     font-weight: 600;
-
+    
     span{
       color: white;
     }
@@ -38,7 +38,6 @@ const List = styled.ul`
       color: gray;
     }
   }
-
   @media screen and (min-width: 648px) {
     gap: 20px;
     

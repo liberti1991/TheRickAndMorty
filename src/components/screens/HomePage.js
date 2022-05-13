@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import styled from "styled-components";
 
 import { Input } from "../layout/Input";
-import { Logo } from "../layout/Logo";
 import { Card } from "./cards/Card";
+import { Logo } from "../layout/Logo"
 import { LivingCharacters } from "../layout/LivingCharacters";
 import { Footer } from "../layout/Footer";
 
@@ -38,6 +38,7 @@ const Container = styled.section`
   gap: 20px;
   padding: 10px;
 
+  
   @media screen and (min-width: 648px) {
     section {
       grid-column: 1 / span 4;

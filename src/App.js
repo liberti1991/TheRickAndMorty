@@ -10,6 +10,7 @@ function getUniqueListBy(arr, key) {
 
 function App() {
   const [characters, setCharacters] = useState([]);
+
   useEffect(() => {
     const promises = [];
 
@@ -47,6 +48,7 @@ export default App;
 const Container = styled.div`
   margin: 0 auto;
   text-align: center;
+  
   @media screen and (min-width: 648px) {
     width: 1200px;
   }

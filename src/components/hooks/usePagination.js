@@ -10,9 +10,7 @@ export const usePagination = (filteredCharacters) => {
   const pageCount = Math.ceil(filteredCharacters.length / itemsPerPage);
 
   const changePage = ({ selected }) => {
-    setPageNumber(selected);
-    // setPageNumber(resetPag >= 0 ? resetPag : selected);
-    // console.log(filteredCharacters.length)
+    setPageNumber(selected);      
   };
 
   return { pagesVisited, pageCount, itemsPerPage, changePage };

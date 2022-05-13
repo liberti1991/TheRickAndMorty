@@ -5,20 +5,18 @@ import { Input } from "../layout/Input";
 import { Logo } from "../layout/Logo";
 import { Card } from "./cards/Card";
 import { LivingCharacters } from "../layout/LivingCharacters";
+import { Footer } from "../layout/Footer";
 
 export const HomePage = ({ characters }) => {
-  // const [resetPag, setResetPag] = useState(-1);
   const handleSearch = useCallback((e) => {
     setSearch(e.target.value);
-    // {e.target.value.length > 0 ? setResetPag(0) : setResetPag(0)  }
-    // console.log(resetPag)
   }, []);
 
   //filter
   const [search, setSearch] = useState("");
   const LowerSearch = search.toUpperCase();
-  const filteredCharacters = characters.filter((characters) => characters.name.toUpperCase().includes(LowerSearch));
-
+  const filteredCharacters = characters.filter((character) => character.name.toUpperCase().includes(LowerSearch));
+    
   return (
     <>
       <Logo />
@@ -29,6 +27,7 @@ export const HomePage = ({ characters }) => {
       <Container>
         <Card filteredCharacters={filteredCharacters} />
       </Container>
+      <Footer />
     </>
   );
 };

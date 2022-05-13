@@ -28,12 +28,24 @@ export const Card = ({ filteredCharacters }) => {
               <h1>{character.name}</h1>
               <Description>
                 <Dot color={character.status === "Alive" ? "green" : character.status === "Dead" ? "red" : "grey"}></Dot>
-                <p>{character.status} - {character.species}</p>
+                <p>
+                  {character.status} - {character.species}
+                </p>
               </Description>
-              <p>Gender: <span>{character.gender}</span></p>
-              {character.type.length > 0 ?  <p>Type: <span>{character.type}</span></p> : null}
-              <p>Origin: <span>{character.origin.name}</span></p>
-              <p>ocation: <span>{character.location.name}aham</span></p>
+              <p>
+                Gender: <span>{character.gender}</span>
+              </p>
+              {character.type.length > 0 ? (
+                <p>
+                  Type: <span>{character.type}</span>
+                </p>
+              ) : null}
+              <p>
+                Origin: <span>{character.origin.name}</span>
+              </p>
+              <p>
+                ocation: <span>{character.location.name}aham</span>
+              </p>
             </ConteinerCard>
           );
         });

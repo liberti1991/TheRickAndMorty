@@ -6,13 +6,19 @@ import { HomePage } from "./components/screens/HomePage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  
   useEffect(() => {
-    setTimeout(() => {
-      axios
-        .get("https://rickandmortyapi.com/api/character")
-        .then((data) => setCharacters(data.data.results))
-        .catch((err) => console.log(err));
-    },5000);
+    const characters = [];
+    // setTimeout(() => {
+      new Array(42).fill("").forEach((item, index) => {
+        axios
+        .get(`https://rickandmortyapi.com/api/character/?page=${index + 1}`)
+        .then((data) => {
+          characters.push(...data.data.results);
+          setCharacters(characters);
+        });
+      });
+    // }, 1000);
   }, []);
 
   return (

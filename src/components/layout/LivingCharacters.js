@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const LivingCharacters = ({ filteredCharacters }) => {
   return (
     <List>
+      <li>Total: {filteredCharacters.length}</li>
       <li>Alive: <span>{filteredCharacters.filter((status) => status.status === "Alive" ).length}</span></li>
       <li>Dead: <span>{filteredCharacters.filter((status) => status.status === "Dead").length}</span></li>
       <li>Unknown: <span>{filteredCharacters.filter((status) => status.status === "unknown").length}</span></li>
@@ -14,12 +15,12 @@ const List = styled.ul`
   display: flex;
   list-style: none;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   
   li{
     display: flex;
     align-items: center;
-    gap:10px;
+    gap:5px;
     font-weight: 600;
 
     span{
@@ -36,6 +37,14 @@ const List = styled.ul`
     
     :nth-child(3){
       color: gray;
+    }
+  }
+
+  @media screen and (min-width: 648px) {
+    gap: 20px;
+    
+    li{
+      gap: 10px;
     }
   }
 `;

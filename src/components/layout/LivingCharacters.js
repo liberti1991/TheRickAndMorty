@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const LivingCharacters = ({ filteredCharacters }) => {
   return (
     <List>
-      <li>Total: {filteredCharacters.length}</li>
       <li>Alive: <span>{filteredCharacters.filter((status) => status.status === "Alive" ).length}</span></li>
       <li>Dead: <span>{filteredCharacters.filter((status) => status.status === "Dead").length}</span></li>
       <li>Unknown: <span>{filteredCharacters.filter((status) => status.status === "unknown").length}</span></li>

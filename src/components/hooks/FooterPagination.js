@@ -45,6 +45,7 @@ const Footer = styled.footer`
     text-decoration: none;
     color: grey;
     cursor: pointer;
+    
     svg {
       width: 25px;
       height: 25px;

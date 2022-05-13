@@ -10,7 +10,6 @@ function getUniqueListBy(arr, key) {
 
 function App() {
   const [characters, setCharacters] = useState([]);
-
   useEffect(() => {
     const promises = [];
 

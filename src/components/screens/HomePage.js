@@ -56,5 +56,4 @@ const Header = styled.div`
     flex-direction: row;
     padding: 10px 30px;
   }
-
 `;

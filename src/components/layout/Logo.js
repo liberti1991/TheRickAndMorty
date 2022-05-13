@@ -1,5 +1,5 @@
-
 import styled from "styled-components"
+
 import logo from "../img/logo.png"
 
 export const Logo =() => {

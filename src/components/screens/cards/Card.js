@@ -10,7 +10,7 @@ export const Card = ({ filteredCharacters }) => {
 
   return (
     <>
-      {filteredCharacters.length !== 826 && (
+      {filteredCharacters.length = 0 && (
         <ContainerLoading>
           <Loading>
             <div></div>

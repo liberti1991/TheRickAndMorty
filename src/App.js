@@ -11,29 +11,13 @@ function getUniqueListBy(arr, key) {
 function App() {
   const [characters, setCharacters] = useState([]);
 
-  // useEffect(() => {
-  //   const characters = [];
-  //   // setTimeout(() => {
-  //     new Array(42).fill("").forEach((item, index) => {
-  //       axios
-  //       .get(`https://rickandmortyapi.com/api/character/?page=${index + 1}`)
-  //       .then((data) => {
-  //         characters.push(...data.data.results);
-  //         setCharacters(characters);
-  //       });
-  //     });
-  //   // }, 1000);
-  // }, []);
-
   useEffect(() => {
     const promises = [];
 
     const characters = [];
 
     new Array(42).fill("").forEach((item, index) => {
-      const url = `https://rickandmortyapi.com/api/character/?page=${
-        index + 1
-      }`;
+      const url = `https://rickandmortyapi.com/api/character/?page=${index + 1}`;
 
       const myPromise = axios.get(url);
 
